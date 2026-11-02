@@ -1,0 +1,26 @@
+# Datos de prueba, exportaciones y respaldo original aportados por el usuario.
+/Referencias/Datos_y_documentos_de_prueba/
+/Referencias/Archivos_y_datos_originales_de_prueba.zip
+/Referencias/Conversacion_previa_aportada.txt
+/Referencias/*.zip
+/Referencias/Identidad_visual/**/assets/ejemplos/
+*.xlsx
+*.xls
+*.docx
+*.zip
+
+# Credenciales, enlaces de proyectos locales y archivos de entorno.
+.clasp.json
+.clasprc.json
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Archivos generados locales.
+node_modules/
+.DS_Store
+Thumbs.db
+*.log

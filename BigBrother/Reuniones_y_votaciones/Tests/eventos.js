@@ -1,0 +1,10 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+let rows=[['reu_x','','','','','','','','','','','','','','']];let header='Censo_asistencia_JSON';
+rows[0][14]=JSON.stringify({reunionId:'reu_x',roster:[{id:'m1',nombre:'Ana',estatus:'Baby'}]});
+let votes=[{id:'v1',fecha:'2026-10-01',estado:'Confirmada',asunto:'Votar',config:{reunionId:'reu_x',exportCenso:{roster:[{id:'m1',preguntas:['q0']},{id:'m2',preguntas:[]}]}}}];
+const c={Set,abrirHojaReuniones_:()=>({getLastRow:()=>2,getMaxColumns:()=>26,getRange:(r,col)=>r===1?{getDisplayValue:()=>header}:{getValues:()=>rows}}),leerReuniones_:()=>[{id:'reu_x',fecha:'2026-10-01',hora:'20:00',titulo:'Reunión',estado:'Convocada',marcado:false}],vot_leer_:()=>votes};
+vm.createContext(c);vm.runInContext(fs.readFileSync(__dirname+'/../Gestion/Seguimiento.gs','utf8'),c);
+let events=c.seg_eventos_();assert.equal(events.length,2);assert.equal(events[0].roster[0].id,'m1');assert.equal(events[1].roster.length,1);assert.equal(events[1].hora,'20:00');
+header='otra';events=c.seg_eventos_();assert.equal(events[0].roster,null);header='Censo_asistencia_JSON';
+votes[0].config.online=true;votes[0].config.dlActivo=true;votes[0].config.dlFecha='2026-10-02';votes[0].config.dlHora='12:00';events=c.seg_eventos_();assert.equal(events[1].fin,'2026-10-02 12:00');
+console.log('OK: censos de reuniones y votaciones, ausencia de censo y cierre online.');

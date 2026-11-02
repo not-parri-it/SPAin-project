@@ -1,0 +1,31 @@
+{
+  "identidad_corporativa": {
+    "blue": "#1973BE",
+    "green": "#69CD28",
+    "orange": "#FAA519"
+  },
+  "nota": "Los siguientes tokens son propuestas de aplicación para esta skill, NO colores oficiales BEST ni requisitos de marca.",
+  "funcional_propuesta": {
+    "ink": "#17324B",
+    "muted": "#60778B",
+    "background": "#FFFFFF",
+    "surface": "#F3F8FC",
+    "border": "#D8E4EE",
+    "blue_soft": "#E7F2FC",
+    "green_soft": "#EAF8E2",
+    "orange_soft": "#FFF3DF"
+  },
+  "roles": {
+    "brand_primary": "blue",
+    "positive_accent": "green",
+    "highlight_accent": "orange",
+    "body_text": "ink",
+    "background": "background",
+    "card_background": "surface"
+  },
+  "perfiles": {
+    "predeterminado": "equilibrado",
+    "alternativo": "libre"
+  },
+  "accessibility": "Comprobar contraste WCAG; no usar los verdes/naranjas principales como texto pequeño sobre blanco sin verificar."
+}
